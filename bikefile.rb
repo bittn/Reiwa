@@ -78,7 +78,12 @@ class BittnTestLang2Parser < Parslet::Parser
   }
 end
 
-
+# np = BittnTestLang2Parser.new
+# # p np.code.parse <<CODE
+# # a = "aiueo"
+# # CODE
+# p np.line.parse %(a = "aiueo")
+# exit(0)
 
 # "\u0004\bo:\tLang\v:\n@nameI\"\u0013BittnTestLang2\u0006:\u0006ET:\r@versionU:\u0011Gem::Version[\u0006I\"\u00120.0.0.pre.dev\u0006;\aT:\f@parser\"\u001F\u0004\bo:\u0019BittnTestLang2Parser\u0000:\v@kinds{\rI\"\rCodeNode\u0006;\aT:\bobjI\"\rLineNode\u0006;\aT;\fI\"\rFuncNode\u0006;\aT;\fI\"\u000EIdensNode\u0006;\aT:\ttypeI\"\u000EParamNode\u0006;\aT;\fI\"\u000EValueNode\u0006;\aT;\fI\"\u0010StringNodee\u0006;\aT;\rI\"\u0010IntegerNode\u0006;\aT;\r:\t@obj{\v:\tcode\"\u0011\u0004\bc\rCodeNode:\tline\"\u0011\u0004\bc\rLineNode:\tfunc\"\u0011\u0004\bc\rFuncNode:\nparam\"\u0012\u0004\bc\u000EParamNode:\nvalue\"\u0012\u0004\bc\u000EValueNode:\vassign\"\u0013\u0004\bc\u000FAssignNode:\n@type{\t:\nidens\"\u0012\u0004\bc\u000EIdensNode:\vstring\"\u0013\u0004\bc\u000FStringNode:\finteger\"\u0014\u0004\bc\u0010IntegerNode:\bvar\"\u0010\u0004\bc\fVarNode"
 
