@@ -1,1 +1,3 @@
-print(date())
+a = "aiueo"
+print(a)
+print("\n")
