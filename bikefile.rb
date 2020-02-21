@@ -44,6 +44,10 @@ class BittnTestLang2Parser < Parslet::Parser
     match("[a-z]") >> match("[a-zA-Z1234567890]").repeat(0)
   }
 
+  rule(:nvar) {
+    match("[a-z]") >> match("[a-zA-Z1234567890]").repeat(0)
+  }
+
   rule(:integer) {
     match("[0-9]").repeat(1)
   }
@@ -65,6 +69,7 @@ class BittnTestLang2Parser < Parslet::Parser
   }
 
   rule(:assign){
+    var.as(:nvar) >> space? >> str("=") >> space? >> value.as(:value)
   }
 
 
@@ -91,6 +96,7 @@ class Lang
       "ValueNode" => :obj,
       "StringNodee" => :type,
       "IntegerNode" => :type
+      "NvarNode" => :type
     }
     @obj = {
       # Marshal.dump(PrintNode.new)
@@ -271,6 +277,17 @@ class VarNode
   end
 end
 
+class NvarNode
+  def initialize(data)
+    @data = data
+  end
+  def exec()
+    return @data.to_s
+  end
+  def class_name
+    self.class.name
+  end
+end
 class AssignNode
   def initialize(data)
     @data = data
