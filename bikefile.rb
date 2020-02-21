@@ -100,7 +100,9 @@ class Lang
       "ParamNode" => :obj,
       "ValueNode" => :obj,
       "StringNodee" => :type,
-      "IntegerNode" => :type
+      "IntegerNode" => :type,
+      "AssignNode" => :obj,
+      "VarNode" => :type,
       "NvarNode" => :type
     }
     @obj = {
