@@ -309,8 +309,9 @@ class AssignNode
     @data = data
   end
   def call()
-    #p @data
-    # Marshal.load(@data[0][0]).exec
+    var = Marshal.load(@data[0][0]).exec
+    value = Marshal.load(@data[0][1]).call
+    $var[var] = value
   end
   def class_name
     self.class.name
