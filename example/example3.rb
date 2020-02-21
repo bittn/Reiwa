@@ -1,0 +1,2 @@
+print(data())
+print("\n")
