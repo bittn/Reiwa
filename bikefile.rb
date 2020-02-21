@@ -173,7 +173,7 @@ class FuncNode
     @data = data
   end
   def call()
-    #p @data[0]
+    # p Marshal.load(@data[0][1])
     idens = Marshal.load(@data[0][0]).exec
     param = Marshal.load(@data[0][1]).call
 
