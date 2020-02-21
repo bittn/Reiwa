@@ -65,7 +65,6 @@ class BittnTestLang2Parser < Parslet::Parser
   }
 
   rule(:assign){
-    var.as(:var) >> sprt? >> str("=") >> sprt? >> value.as(:value)
   }
 
 
