@@ -175,13 +175,19 @@ class FuncNode
   def call()
     # p Marshal.load(@data[0][1])
     idens = Marshal.load(@data[0][0]).exec
-    param = Marshal.load(@data[0][1]).call
+    if @data.size==1
+      param = ""
+    else
+      param = Marshal.load(@data[0][1]).call
+    end
 
     case idens
     when "print"
       PrintNode.new(param).call
-    when "data"
+    when "date"
       DateNode.new(param).call
+    else
+      raise BittnError,"#{idens}という関数はありません"
     end
   end
   def class_name
