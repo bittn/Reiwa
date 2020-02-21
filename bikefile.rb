@@ -195,6 +195,7 @@ class FuncNode
   end
 end
 
+
 class PrintNode
   def initialize(data)
     @data = data
@@ -302,6 +303,7 @@ class NvarNode
     self.class.name
   end
 end
+
 class AssignNode
   def initialize(data)
     @data = data
