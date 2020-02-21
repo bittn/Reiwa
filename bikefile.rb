@@ -118,7 +118,8 @@ class Lang
       :idens => Marshal.dump(IdensNode),
       :string => Marshal.dump(StringNode),
       :integer => Marshal.dump(IntegerNode),
-      :var => Marshal.dump(VarNode)
+      :var => Marshal.dump(VarNode),
+      :nvar => Marshal.dump(NvarNode)
     }
   end
   def getName
