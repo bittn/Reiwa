@@ -1,4 +1,5 @@
 require 'parslet'
+require 'date'
 require "#{ENV["BITTNDIR"]}/lib/debugmsgs/main.rb"
 
 # ----- Sample ---------- #
@@ -23,7 +24,7 @@ $var = {}
 
 
 class BittnTestLang2Parser < Parslet::Parser
-  idens = ["print"]
+  idens = ["print","date"]
   root(:code)
   rule(:space){ str(" ") }
   rule(:spaces){ space.repeat(1) }
@@ -159,13 +160,15 @@ class FuncNode
     @data = data
   end
   def call()
-    # pp @data
+    #p @data[0]
     idens = Marshal.load(@data[0][0]).exec
     param = Marshal.load(@data[0][1]).call
 
     case idens
     when "print"
       PrintNode.new(param).call
+    when "data"
+      DateNode.new(param).call
     end
   end
   def class_name
@@ -179,6 +182,16 @@ class PrintNode
   end
   def call()
     print(@data)
+  end
+end
+
+
+class DateNode
+  def initialize(data)
+    @data = data
+  end
+  def call()
+    return Time.now.to_s
   end
 end
 
@@ -264,7 +277,7 @@ class AssignNode
     @data = data
   end
   def call()
-    p @data
+    #p @data
     # Marshal.load(@data[0][0]).exec
   end
   def class_name
