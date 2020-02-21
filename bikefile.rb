@@ -53,11 +53,11 @@ class BittnTestLang2Parser < Parslet::Parser
   }
 
   rule(:code) {
-    (line.as(:line) | sprt).repeat(0).as(:code)
+    (line.as(:line) | return_mark).repeat(0).as(:code)
   }
 
   rule(:line) {
-    func.as(:func) | value.as(:value) | assign.as(:assign)
+    assign.as(:assign) | func.as(:func) | value.as(:value)
   }
 
   rule(:func) {
