@@ -28,7 +28,7 @@ class BittnTestLang2Parser < Parslet::Parser
   root(:code)
   rule(:space){ str(" ") }
   rule(:spaces){ space.repeat(1) }
-  rule(:space?){ spaces.maybe }
+  rule(:space?){ spaces.repeat(0) }
   rule(:return_mark){ str("\n") }
   rule(:returns){ return_mark.repeat(1) }
   rule(:return?){ returns.maybe }
