@@ -1,2 +1,2 @@
-print(data())
+print(date())
 print("\n")
